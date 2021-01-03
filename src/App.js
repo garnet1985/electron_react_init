@@ -1,11 +1,10 @@
 import React from 'react';
-import Wrapper from './cps/wrapper/wrapper';
-import './App.css';
+import Home from './pages/home/home';
 
 function App() {
   return (
     <div className="App">
-      <Wrapper />
+      <Home />
     </div>
   );
 }
