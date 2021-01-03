@@ -12,12 +12,12 @@ Storage.prototype.load = function(fileName){
 	return this.do('load', fileName);
 }
 
-Storage.prototype.loadExcel = function(filePath){
+Storage.prototype.request = function(eventName, data){
 	return new Promise((resolve, reject) => {
-		this.ipcRenderer.once('loadExcel.complete', (e, data) => {
-			resolve(data);
+		this.ipcRenderer.once(`${eventName}.complete`, (e, response) => {
+			resolve(response);
 		});
-		this.ipcRenderer.send('loadExcel', filePath);
+		this.ipcRenderer.send(eventName, data);
 	});
 }
 

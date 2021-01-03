@@ -3,6 +3,12 @@ const path = require('path');
 const MainApp = require('../bed');
 const mainApp = new MainApp(ipcMain, app);
 
+require('electron-reload')(path.resolve(__dirname, '../bed'), {
+  electron: path.join(__dirname, '../node_modules', '.bin', 'electron'),
+  argv: ['--dev'],
+  forceHardReset: true
+});
+
 const conf = {
   windowWidth: 1280,
   windowHeight: 800,
